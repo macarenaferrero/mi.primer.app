@@ -1,0 +1,12 @@
+$color-borde: black;
+$color-borde-hover: blue;
+
+
+.parrafo{
+    border: 3px solid $color-borde;
+
+    &:hover {
+        border: 3px solid $color-borde-hover;
+        border-radius: 20px;
+    }
+}
