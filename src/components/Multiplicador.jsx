@@ -4,6 +4,7 @@ import { useState } from "react";
 import './Multiplicador.css';
 import './Multiplicador.scss'
 
+
 const Multiplicador = (props) => {
     console.log(props)
 
@@ -33,6 +34,7 @@ const Multiplicador = (props) => {
                 <button className="btn btn-success ms-4" onClick={multiplicar}>
                     Multiplicar *4
                 </button>
+                
             </div>
         </div>
      )

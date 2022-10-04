@@ -2,6 +2,10 @@ import './App.css';
 import Mensaje from './components/Mensaje';
 import Contador from './components/Contador'
 import Multiplicador from './components/Multiplicador';
+import Estructura from './components/Estructura';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Entrada from './components/Entrada';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -37,7 +41,27 @@ function App() {
             parrafo="voluptatem sapiente molestias ipsa magnam,"
             color="red"
             />
+            <hr/>
+
             </div>       
+            {/* Punto de partida del Router */}
+            <BrowserRouter>
+            <Navbar/>
+            <Switch>
+              {/* <Route path="/mensaje-4" component={Mensaje} />  Se podría llamar así al componenete también*/}
+              <Route path="/entrada" component={() => <Entrada/>} />
+              <Route path="/mensaje-4" component={() => <Mensaje
+              mensaje="Mensaje N°4"
+              parrafo="Lorem ipsu dolor"
+              color="green"
+              />} />
+              <Route path="/mensaje-5" component={() => <Mensaje
+              mensaje="Mensaje N°5"
+              parrafo="amet consectetur adipisicing elit. Eveniet quasi, iure aliquid"
+              color="gold"
+              />} />
+            </Switch>
+            </BrowserRouter>
 
             <hr/>
             <Contador id="1" valorInicial="40" fondo="blue"/>     
@@ -46,6 +70,8 @@ function App() {
 
             <Multiplicador id="1" valorInicial={66} fondo="gold"/>
             <Multiplicador id="2" valorInicial={6} fondo="green"/>
+            <hr/>
+            <Estructura></Estructura>
           </div>
         </div>
       </div>
