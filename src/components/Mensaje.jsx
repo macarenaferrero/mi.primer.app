@@ -1,9 +1,20 @@
 import React from "react";
 
-const Mensaje = ({mensaje, parrafo, color:fondoColor}) => {
+const Mensaje = (props) => {
     //console.log(props)
     //console.log(props['mensaje']) //bracket notation
     //console.log(props.mensaje) //dot notation
+
+ //const {mensaje, parrafo, color:fondoColor} = props
+
+//console.log(props.match?.params) // OpTIONAL CHAINING (?.)
+
+//Si match viene undefined, desectructurá props
+const {mensaje, parrafo, color:fondoColor} = props.match?.params || props // || Short circuit operation
+
+console.log(props.match?.params) // OpTIONAL CHAINING (?.)
+
+
 
 //Creo una función con el estilo
 const funcionEstilo = (color) => {

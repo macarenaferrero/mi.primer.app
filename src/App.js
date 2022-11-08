@@ -3,9 +3,10 @@ import Mensaje from './components/Mensaje';
 import Contador from './components/Contador'
 import Multiplicador from './components/Multiplicador';
 import Estructura from './components/Estructura';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Entrada from './components/Entrada';
 import Navbar from './components/Navbar';
+import RutaNoValida from './components/RutaNoValida';
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
             <BrowserRouter>
             <Navbar/>
             <Switch>
+
+              <Route exact path="/">
+                <Redirect to="mensaje-5"/>
+              </Route>
+
               {/* <Route path="/mensaje-4" component={Mensaje} />  Se podría llamar así al componenete también*/}
               <Route path="/entrada" component={() => <Entrada/>} />
               <Route path="/mensaje-4" component={() => <Mensaje
@@ -60,6 +66,15 @@ function App() {
               parrafo="amet consectetur adipisicing elit. Eveniet quasi, iure aliquid"
               color="gold"
               />} />
+
+              {/* Ruteo de componentes con parametros*/}
+              <Route path="/mensaje-6/:mensaje/:parrafo/:color" component={Mensaje}/>
+              <Route path="/mensaje-7/:mensaje/:parrafo/:color" component={Mensaje}/>
+
+
+              {/* Ruteo para rutas no validas*/}
+              <Route component={RutaNoValida}/>
+
             </Switch>
             </BrowserRouter>
 
